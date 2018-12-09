@@ -1,0 +1,42 @@
+package assignment5;
+// Assignment #: Arizona State University Assignment #5
+//         Name: Megan McElenney
+//    StudentID: 1214828277
+//      Lecture: 1
+//      Section: A
+//  Description: The Food class uses the template the Product class created 
+//      to create objects. It has name, damageRate and expirationDate as instance
+//      variables along with the ones it inherited from Product. It has its own
+//      computeTotalCost and toString methods.
+
+public class Food extends Product
+{
+    private String name = "?";
+    private double damageRate = 0.0;
+    private String expirationDate = "08.20.2015";
+    
+    //constructor
+    public Food(String iden, int numb, double money, String nam, double dam, String day)
+    {
+        super(iden, numb, money);
+        name = nam;
+        damageRate = dam;
+        expirationDate = day;
+    }
+    
+    //specific equation for total cost
+    public void computeTotalCost( )
+    {
+        super.totalCost = (unitPrice * quantity) * (1 + damageRate);
+    }
+    
+    //for printing
+    public String toString()
+    {
+        return "\nFood:" +
+                super.toString() +
+                "Food Name:\t\t" + name + "\n" +
+                "Damage Rate:\t\t" + form.format(damageRate*100) + "%\n" +
+                "Expiration date:\t" + expirationDate + "\n";
+    }
+}
