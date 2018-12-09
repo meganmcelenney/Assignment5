@@ -1,0 +1,38 @@
+package assignment5;
+// Assignment #: Arizona State University Assignment #5
+//         Name: Megan McElenney
+//    StudentID: 1214828277
+//      Lecture: 1
+//      Section: A
+//  Description: The Clothing class uses the template the Product class created 
+//      to create objects. It has size and color as instance variables along 
+//      with the ones it inherited from Product. It has its own computeTotalCost
+//      and toString methods.
+
+public class Clothing extends Product
+{
+    private String size;
+    private String color;
+    
+    //constructor
+    public Clothing(String id, int hMany, double price, String sz, String clr)
+    {
+        super(id, hMany, price);
+        size = sz;
+        color = clr;
+    }
+    
+    //specific equation for total cost
+    public void computeTotalCost()
+    {
+        super.totalCost = unitPrice * quantity;
+    }
+    
+    //for printing
+    public String toString()
+    {
+        return "\nClothing:" + super.toString() +
+                "Size:\t\t\t" + size + "\n" +
+                "Color:\t\t\t" + color + "\n";
+    }
+}
