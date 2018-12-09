@@ -1,0 +1,44 @@
+package assignment5;
+
+// Assignment #: Arizona State University Assignment #5
+//         Name: Megan McElenney
+//    StudentID: 1214828277
+//      Lecture: 1
+//      Section: A
+//  Description: The Product class creates a template for the food and clothing
+//      classes to create objects. It has a productId, quanity, unitPrice, and
+//      totalCost as instance fields. It also has a toString method.
+
+import java.text.DecimalFormat;
+
+abstract class Product 
+{
+    protected String productId = "?";
+    protected int quantity = 0;
+    protected double unitPrice = 0.0;
+    protected double totalCost = 0.0;
+   
+    DecimalFormat form = new DecimalFormat("0.00");
+    
+    public Product(String id, int num, double price)//constructor
+    {
+        productId = id;
+        quantity = num;
+        unitPrice = price;
+    }
+    
+    public String getProductId()
+    {
+        return productId;
+    }
+    
+    public abstract void computeTotalCost( );//declaration that must be implemented 
+    
+    public String toString()//for printing
+    {
+       return "\nProduct ID:\t\t" + productId + "\n" +
+                "Quantity:\t\t" + quantity + "\n" +
+                "Unit Price:\t\t$" + form.format(unitPrice) + "\n" +
+                "Total Cost:\t\t$" + form.format(totalCost) + "\n";
+    }
+}
