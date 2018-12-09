@@ -1,0 +1,46 @@
+package assignment5;
+// Assignment #: Arizona State University Assignment #5
+//         Name: Megan McElenney
+//    StudentID: 1214828277
+//      Lecture: 1
+//      Section: A
+//  Description: The ProductParser class takes a line of input and finds the 
+//      correct information and creates an object of the correct class from the
+//      given input.
+
+public class ProductParser 
+{
+
+    /**
+     *
+     * @param lineToParse
+     * @return
+     */
+    public static Product parseStringToProduct(String lineToParse)
+    {
+        //identifies and creates a clothing object
+        if(lineToParse.charAt(0) == 'c' || lineToParse.charAt(0) == 'C')
+        {
+           String[] clothes = new String[6];
+           clothes = lineToParse.split("/"); 
+           int number = Integer.parseInt(clothes[2]);
+           double mooney = Double.parseDouble(clothes[2]);
+           Product style = new Clothing(clothes[1], number, mooney, clothes[4],
+                   clothes[5]);
+           return style;
+        }
+        
+        //identifies and creates a food object
+        else
+        {
+           String[] food = new String[7];
+           food = lineToParse.split("/"); 
+           int number = Integer.parseInt(food[2]);
+           double prrice = Double.parseDouble(food[3]);
+           double damage = Double.parseDouble(food[5]);
+           Product snack = new Food(food[1], number, prrice, food[4], damage,
+                   food[6]);
+           return snack;
+        }
+    }
+}
